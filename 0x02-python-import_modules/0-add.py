@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 from add_0 import add
-
-def main():
+if __name__ == "__main__":
+    '''
+    Prints sum of two numbers
+    '''
     a = 1
     b = 2
-    print(f"{a} + {b} = {add(1, 2)}")
-
-if __name__ == '__main__':
-    main()
+    print('{:d} + {:d} = {:d}'.format(a, b, add(a, b)))
