@@ -1,13 +1,23 @@
 #!/usr/bin/python3
 '''Rectangle Class
-    This class doesn't do anything at the moment
+    A rectangle class
     '''
 
 
 class Rectangle:
-  '''Empty class'''
+  '''Rectangle with size'''
 
   def __init__(self, width=0, height=0):
+    '''__init__
+        The __init__ method initializes the width and\
+             height methods of the Rectangle.
+        Attributes:
+            width (:obj:'int', optional): The width of the Rectangle
+            height (:obj:'int', optional): The height of the Rectangle
+        Raises:
+            TypeError: If 'width' or  'height' is not an integer
+            ValueError: if 'width' or  'height' < 0
+        '''
     self.__width = width
     self.__height = height
 
