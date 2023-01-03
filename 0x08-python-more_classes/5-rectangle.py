@@ -83,3 +83,5 @@ class Rectangle:
 
     return f'Rectangle({w}, {h})'
   
+  def __del__(self):
+    print("Bye rectangle...")
