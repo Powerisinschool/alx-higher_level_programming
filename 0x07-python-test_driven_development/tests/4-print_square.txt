@@ -1,5 +1,4 @@
 # 4-print_square.txt
-# Tosin Wahab
 
 ============================
 How to Use 4-print_square.py

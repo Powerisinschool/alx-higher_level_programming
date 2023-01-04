@@ -1,5 +1,4 @@
 # 3-say_my_name.txt
-# Tosin Wahab
 
 ===========================
 How to Use 3-say_my_name.py
