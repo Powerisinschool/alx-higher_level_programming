@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-'''This class is a class'''
+"""This class is a class"""
 
 def is_same_class(obj, a_class):
 	"""
