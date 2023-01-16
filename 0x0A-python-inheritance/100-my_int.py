@@ -11,11 +11,10 @@ class MyInt(int):
 		"""
 		Override the == operator to invert the logic
 		"""
-		if not self > value and not self < value:
-			return False
+		return super().__ne__(value)
 
 	def __ne__(self, value):
 		"""
 		Override the != operator to invert the logic
 		"""
-		return not self == value
+		return super().__eq__(value)
