@@ -2,6 +2,7 @@
 
 """This class is a class"""
 
+
 class BaseGeometry:
 	"""
 	This is an empty class
