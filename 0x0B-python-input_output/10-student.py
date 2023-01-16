@@ -23,6 +23,7 @@ class Student:
 		"""
 		Returns a dictionary representation of a Student instance
 
+		:param attrs: list of strings
 		:return: dictionary
 		"""
 		if attrs is None:
