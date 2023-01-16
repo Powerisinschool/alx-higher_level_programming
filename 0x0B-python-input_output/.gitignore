@@ -1,4 +1,4 @@
-*-main.py
+*-main*.py
 *.txt
-my_*.*
+*my_*.*
 add_item.json
