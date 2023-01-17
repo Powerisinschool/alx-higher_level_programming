@@ -26,5 +26,5 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_dict(self):
         dictionary = {'id': 1, 'width': 10, 'height': 7, 'x': 2, 'y': 8}
-        self.assertEqual(Base.to_json_string([dictionary]),
-                         '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]')
+        self.assertEqual(Base.to_json_string(dictionary),
+                         '{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}')
