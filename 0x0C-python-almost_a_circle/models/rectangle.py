@@ -71,12 +71,19 @@ class Rectangle(Base):
 
 	def area(self):
 		"""
-		Return the area of the rectangle
+		This function returns the area of the rectangle
 		"""
 		return self.__width * self.__height
 
 	def display(self):
 		"""
-		Display a rectangle as a sequence of '#'
+		This function displays a rectangle as a sequence of '#'
 		"""
 		print(f"{'#' * self.__width}\n" * self.__height, end="")
+
+	def __str__(self):
+		"""
+		__str__
+		Return the string representation of the rectangle
+		"""
+		return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
