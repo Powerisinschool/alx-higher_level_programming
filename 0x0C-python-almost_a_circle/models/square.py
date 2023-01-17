@@ -27,3 +27,16 @@ class Square(Rectangle):
         Return the string representation of the square
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    def update(self, *args, **kwargs):
+        """
+        This function updates the properties of the rectangle
+        """
+        attributes = ["id", "size", "x", "y"]
+        for i in range(len(args)):
+            setattr(self, attributes[i], args[i])
+            if i == len(args) - 1:
+                return
+
+        for name, value in kwargs.items():
+            setattr(self, name, value)
