@@ -20,3 +20,10 @@ class TestBase(unittest.TestCase):
 		self.assertEqual(str(s2), f"[Square] ({s2.id}) 2/0 - 2")
 		s3 = Square(3, 1, 3)
 		self.assertEqual(str(s3), f"[Square] ({s3.id}) 1/3 - 3")
+
+	def test_raises_error(self):
+		s1 = Square(5)
+		with self.assertRaises(TypeError):
+			s1.size = "9"
+		with self.assertRaises(ValueError):
+			s1.size = -10
