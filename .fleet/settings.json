@@ -1,3 +1,5 @@
 {
-    "toolchains": []
+    "toolchains": [],
+	"editor.guides": [],
+	"formatter.prettier.enabled": true,
 }
