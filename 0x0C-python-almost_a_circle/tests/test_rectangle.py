@@ -83,6 +83,6 @@ class TestBase(unittest.TestCase):
 
     def test_dict_repr(self):
         r1 = Rectangle(10, 2, 1, 9)
-        self.assertEqual(r1.to_dictionary(),
-                         {'id': r1.id, 'width': 10, 'height': 2, 'x': 1, 'y': 9})
+        expected = {'id': r1.id, 'width': 10, 'height': 2, 'x': 1, 'y': 9}
+        self.assertEqual(r1.to_dictionary(), expected)
         self.assertEqual(type(r1.to_dictionary()), dict)

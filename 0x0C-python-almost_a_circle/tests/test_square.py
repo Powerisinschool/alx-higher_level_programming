@@ -30,5 +30,6 @@ class TestBase(unittest.TestCase):
 
     def test_dict_repr(self):
         s1 = Square(10, 2, 1)
-        self.assertEqual(s1.to_dictionary(), {'id': s1.id, 'size': 10, 'x': 2, 'y': 1})
+        expected = {'id': s1.id, 'size': 10, 'x': 2, 'y': 1}
+        self.assertEqual(s1.to_dictionary(), expected)
         self.assertEqual(type(s1.to_dictionary()), dict)
