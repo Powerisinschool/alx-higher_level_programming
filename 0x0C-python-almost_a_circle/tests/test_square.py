@@ -13,7 +13,7 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(Square.__nb_objects)
 
-    def test_string_representation(self):
+    def test_string_repr(self):
         s1 = Square(5)
         self.assertEqual(str(s1), f"[Square] ({s1.id}) 0/0 - 5")
         s2 = Square(2, 2)
@@ -27,3 +27,8 @@ class TestBase(unittest.TestCase):
             s1.size = "9"
         with self.assertRaises(ValueError):
             s1.size = -10
+
+    def test_dict_repr(self):
+        s1 = Square(10, 2, 1)
+        self.assertEqual(s1.to_dictionary(), {'id': s1.id, 'size': 10, 'x': 2, 'y': 1})
+        self.assertEqual(type(s1.to_dictionary()), dict)

@@ -37,7 +37,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Rectangle(2, 10).area(), 20)
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
 
-    def test_string_representation(self):
+    def test_string_repr(self):
         self.assertEqual(str(Rectangle(4, 6, 2, 1, 12)),
                          "[Rectangle] (12) 2/1 - 4/6")
         self.assertEqual(str(Rectangle(5, 5, 1))[-9:], "1/0 - 5/5")
@@ -80,3 +80,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.height, 2)
         self.assertEqual(r1.y, 3)
         self.assertEqual(r1.width, 4)
+
+    def test_dict_repr(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        self.assertEqual(r1.to_dictionary(),
+                         {'id': r1.id, 'width': 10, 'height': 2, 'x': 1, 'y': 9})
+        self.assertEqual(type(r1.to_dictionary()), dict)
