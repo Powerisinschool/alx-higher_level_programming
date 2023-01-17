@@ -3,6 +3,7 @@
 """ Base model """
 
 import json
+import os
 
 
 class Base:
@@ -54,3 +55,11 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        fp = f"{cls.__name__}.json"
+        if not os.path.exists(fp):
+            return []
+        with open(fp, "r") as f:
+            return [cls.create(**obj) for obj in cls.from_json_string(f.read())]
