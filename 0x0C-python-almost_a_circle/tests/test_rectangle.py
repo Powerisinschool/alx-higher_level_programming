@@ -9,10 +9,8 @@ class TestBase(unittest.TestCase):
 		pass
 
 	def test_private_variable(self):
-		try:
+		with self.assertRaises(AttributeError):
 			print(Rectangle.__nb_objects)
-		except AttributeError as e:
-			self.assertIs(type(e), AttributeError)
 
 	def test_functionality(self):
 		r1 = Rectangle(10, 2)
@@ -21,3 +19,13 @@ class TestBase(unittest.TestCase):
 		self.assertEqual(r1.id, 4)
 		self.assertEqual(r2.id, 5)
 		self.assertEqual(r3.id, 12)
+
+	def test_raises_error(self):
+		self.assertRaises(TypeError, Rectangle, 10, "2")
+		with self.assertRaises(ValueError):
+			r = Rectangle(10, 2)
+			r.width = -10
+		with self.assertRaises(TypeError):
+			r = Rectangle(10, 2)
+			r.x = {}
+		self.assertRaises(ValueError, Rectangle, 10, 2, 3, -1)
