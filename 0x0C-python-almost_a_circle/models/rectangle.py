@@ -79,14 +79,16 @@ class Rectangle(Base):
         """
         This function displays a rectangle as a sequence of '#'
         """
-        print("\n" * self.__y, f"{' ' * self.__x}{'#' * self.__width}\n" * self.__height, end="", sep="")
+        print("\n" * self.__y, f"{' ' * self.__x}\
+{'#' * self.__width}\n" * self.__height, end="", sep="")
 
     def __str__(self):
         """
         __str__
         Return the string representation of the rectangle
         """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}\
+- {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """
