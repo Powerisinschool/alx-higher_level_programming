@@ -42,3 +42,23 @@ class TestBase(unittest.TestCase):
 		self.assertEqual(str(Rectangle(5, 5, 1))[-9:], "1/0 - 5/5")
 		pattern = re.compile(r"\[Rectangle] \([0-9]+\) 1/0 - 5/5")
 		self.assertRegex(str(Rectangle(5, 5, 1)), pattern)
+
+	def test_update(self):
+		r1 = Rectangle(10, 10, 10, 10)
+		r1.update(89)
+		self.assertEqual(r1.id, 89)
+		r1.update(89, 2)
+		self.assertEqual(r1.width, 2)
+		r1.update(89, 2, 3)
+		self.assertEqual(r1.height, 3)
+		r1.update(89, 2, 3, 4)
+		self.assertEqual(r1.x, 4)
+		r1.update(89, 2, 3, 4, 5)
+		self.assertEqual(r1.y, 5)
+
+		r1.update(90, 12, 23, 44, 35)
+		self.assertEqual(r1.id, 90)
+		self.assertEqual(r1.width, 12)
+		self.assertEqual(r1.height, 23)
+		self.assertEqual(r1.x, 44)
+		self.assertEqual(r1.y, 35)
