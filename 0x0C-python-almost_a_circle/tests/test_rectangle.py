@@ -35,7 +35,7 @@ class TestBase(unittest.TestCase):
 		self.assertEqual(Rectangle(2, 10).area(), 20)
 		self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
 
-	def test_string_prepresentation(self):
+	def test_string_representation(self):
 		self.assertEqual(str(Rectangle(4, 6, 2, 1, 12)), "[Rectangle] (12) 2/1 - 4/6")
 		self.assertEqual(str(Rectangle(5, 5, 1))[-9:], "1/0 - 5/5")
 		# self.assertRegex(str(Rectangle(5, 5, 1)), "[Rectangle] (*) 1/0 - 5/5")
