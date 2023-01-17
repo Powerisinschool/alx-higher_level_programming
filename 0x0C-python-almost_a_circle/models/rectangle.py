@@ -79,7 +79,7 @@ class Rectangle(Base):
 		"""
 		This function displays a rectangle as a sequence of '#'
 		"""
-		print(f"{'#' * self.__width}\n" * self.__height, end="")
+		print("\n" * self.__y, f"{' ' * self.__x}{'#' * self.__width}\n" * self.__height, end="", sep="")
 
 	def __str__(self):
 		"""
