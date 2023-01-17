@@ -1,0 +1,11 @@
+{
+	"configurations": [
+		{
+			"type": "python",
+			"name": "0x0C-python-almost_a_circle - Tests",
+			"arguments": ["discover", "tests"],
+			"workingDir": "./0x0C-python-almost_a_circle",
+			"module": "unittest",
+		}
+	]
+}
