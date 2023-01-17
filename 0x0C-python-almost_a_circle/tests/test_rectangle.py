@@ -18,9 +18,11 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle(2, 10)
         r3 = Rectangle(10, 2, 0, 0, 12)
         r4 = Rectangle(12, 2)
+        r5 = Rectangle(1, 2, 3, 4)
         self.assertEqual(r2.id, r1.id + 1)
         self.assertEqual(r3.id, 12)
         self.assertEqual(r4.id, r1.id + 2)
+        self.assertEqual(r5.id, r1.id + 3)
 
     def test_raises_error(self):
         self.assertRaises(TypeError, Rectangle, 10, "2")
