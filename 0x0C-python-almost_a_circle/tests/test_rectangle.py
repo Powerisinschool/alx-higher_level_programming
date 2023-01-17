@@ -9,6 +9,105 @@ class TestBase(unittest.TestCase):
     def test_basic_program(self):
         pass
 
+    def test_rectangle_id(self):
+        """ """
+        r1 = Rectangle(10, 10)
+        r2 = Rectangle(2, 4)
+        r3 = Rectangle(3, 5, 0, 0, 12)
+        self.assertEqual(r1.id, r1.id)
+        self.assertEqual(r2.id, r1.id + 1)
+        self.assertEqual(r3.id, 12)
+
+    def test_rectangle_width(self):
+        """ """
+        r1 = Rectangle(10, 2)
+        r2 = Rectangle(2, 4)
+        r3 = Rectangle(3, 5, 0, 0, 12)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r2.width, 2)
+        self.assertEqual(r3.width, 3)
+
+    def test_rectangle_height(self):
+        """ """
+        r1 = Rectangle(10, 2)
+        r2 = Rectangle(2, 4)
+        r3 = Rectangle(3, 5, 0, 0, 12)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r2.height, 4)
+        self.assertEqual(r3.height, 5)
+
+    def test_rectangle_x(self):
+        """ """
+        r1 = Rectangle(10, 2)
+        r2 = Rectangle(2, 4)
+        r3 = Rectangle(3, 5, 0, 0, 12)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r2.x, 0)
+        self.assertEqual(r3.x, 0)
+
+    def test_rectangle_y(self):
+        """ """
+        r1 = Rectangle(10, 2)
+        r2 = Rectangle(2, 4)
+        r3 = Rectangle(3, 5, 0, 0, 12)
+        self.assertEqual(r1.y, 0)
+        self.assertEqual(r2.y, 0)
+        self.assertEqual(r3.y, 0)
+
+    def test_rectangle_str(self):
+        """ """
+        r1 = Rectangle(3, 2)
+        r2 = Rectangle(2, 4, 0, 0, 12)
+        r3 = Rectangle(3, 5, 0, 0, 12)
+        self.assertEqual(r1.__str__(), f"[Rectangle] ({r1.id}) 0/0 - 3/2")
+        self.assertEqual(r2.__str__(), "[Rectangle] (12) 0/0 - 2/4")
+        self.assertEqual(r3.__str__(), "[Rectangle] (12) 0/0 - 3/5")
+
+    def test_rectangle_update(self):
+        """ """
+        r1 = Rectangle(10, 10, 10, 10)
+        r2 = Rectangle(5, 5, 5, 5, 12)
+        r1.update(89)
+        r2.update(89, 2, 3, 4, 5)
+        self.assertEqual(r1.__str__(), "[Rectangle] (89) 10/10 - 10/10")
+        self.assertEqual(r2.__str__(), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_rectangle_update_args(self):
+        """ """
+        r1 = Rectangle(10, 10, 10, 10)
+        r2 = Rectangle(5, 5, 5, 5, 12)
+        r1.update(89, 2, 3, 4, 5)
+        r2.update(89, 2, 3, 4, 5)
+        self.assertEqual(r1.__str__(), "[Rectangle] (89) 4/5 - 2/3")
+        self.assertEqual(r2.__str__(), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_rectangle_to_dict(self):
+        """ """
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(r1.__str__(), r2.__str__())
+        self.assertNotEqual(r1, r2)
+
+    def test_rectangle_to_dict_none(self):
+        """ """
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(r1.__str__(), r2.__str__())
+        self.assertNotEqual(r1, r2)
+
+    def test_rectangle_to_dict_args(self):
+        """ """
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(r1.__str__(), r2.__str__())
+        self.assertNotEqual(r1, r2)
+
     def test_private_variable(self):
         with self.assertRaises(AttributeError):
             print(Rectangle.__nb_objects)
