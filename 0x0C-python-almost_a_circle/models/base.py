@@ -62,4 +62,4 @@ class Base:
         if not os.path.exists(fp):
             return []
         with open(fp, "r") as f:
-            return [cls.create(**obj) for obj in cls.from_json_string(f.read())]
+            return [cls.create(**ob) for ob in cls.from_json_string(f.read())]
