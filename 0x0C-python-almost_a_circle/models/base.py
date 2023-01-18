@@ -55,7 +55,7 @@ class Base:
         else:
             attributes = ["id"]
         fp = f"{cls.__name__}.csv"
-        with open(fp, "w") as f:
+        with open(fp, "w", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=attributes)
             writer.writeheader()
             if list_objs is None:
