@@ -4,6 +4,7 @@
 
 import json
 import os
+import turtle
 
 
 class Base:
@@ -63,3 +64,39 @@ class Base:
             return []
         with open(fp, "r") as f:
             return [cls.create(**ob) for ob in cls.from_json_string(f.read())]
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        for square in list_squares:
+            my_turtle = turtle.Turtle()
+            print(square)
+            my_turtle.pu()
+            my_turtle.goto(square.x, square.y)
+            my_turtle.pd()
+            my_turtle.begin_fill()
+            my_turtle.fd(square.size)
+            my_turtle.rt(90)
+            my_turtle.fd(square.size)
+            my_turtle.rt(90)
+            my_turtle.fd(square.size)
+            my_turtle.rt(90)
+            my_turtle.fd(square.size)
+            my_turtle.end_fill()
+
+        for rectangle in list_rectangles:
+            my_turtle = turtle.Turtle()
+            print(rectangle)
+            my_turtle.pu()
+            my_turtle.goto(rectangle.x, rectangle.y)
+            my_turtle.pd()
+            my_turtle.begin_fill()
+            my_turtle.fd(rectangle.height)
+            my_turtle.rt(90)
+            my_turtle.fd(rectangle.width)
+            my_turtle.rt(90)
+            my_turtle.fd(rectangle.height)
+            my_turtle.rt(90)
+            my_turtle.fd(rectangle.width)
+            my_turtle.end_fill()
+
+        turtle.done()
