@@ -2,6 +2,7 @@
 
 """ Base model """
 
+import csv
 import json
 import os
 import turtle
@@ -32,7 +33,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-        This function saves an object to a file
+        This function saves an object to a JSON file
         """
         fp = f"{cls.__name__}.json"
         with open(fp, "w") as f:
@@ -41,6 +42,26 @@ class Base:
                 return
             f.write(cls.to_json_string([obj.to_dictionary()
                                         for obj in list_objs]))
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        This function saves an object to a CSV file
+        """
+        if cls.__name__ == "Rectangle":
+            attributes = ["id", "width", "height", "x", "y"]
+        elif cls.__name__ == "Square":
+            attributes = ["id", "size", "x", "y"]
+        else:
+            attributes = ["id"]
+        fp = f"{cls.__name__}.csv"
+        with open(fp, "w") as f:
+            writer = csv.DictWriter(f, fieldnames=attributes)
+            writer.writeheader()
+            if list_objs is None:
+                return
+            for obj in list_objs:
+                writer.writerow(obj.to_dictionary())
 
     @staticmethod
     def from_json_string(json_string):
@@ -64,6 +85,23 @@ class Base:
             return []
         with open(fp, "r") as f:
             return [cls.create(**ob) for ob in cls.from_json_string(f.read())]
+
+    @classmethod
+    def load_from_file_csv(cls):
+        fp = f"{cls.__name__}.csv"
+        output = []
+        if not os.path.exists(fp):
+            return output
+        with open(fp, 'r') as f:
+            reader = csv.reader(f)
+            header = next(reader)
+            for row in reader:
+                dict = {}
+                for k, v in zip(header, row):
+                    dict[k] = int(v)
+                if len(dict) > 0:
+                    output.append(dict)
+            return [cls.create(**ob) for ob in output]
 
     @staticmethod
     def draw(list_rectangles, list_squares):
