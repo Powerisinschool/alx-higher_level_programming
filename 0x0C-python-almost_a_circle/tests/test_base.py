@@ -74,5 +74,6 @@ class TestBase(unittest.TestCase):
                          '{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}')
 
     def test_from_json(self):
-        json_string = '[{"id": 89, "width": 10, "height": 4}, {"id": 7, "width": 1, "height": 7}]'
+        json_string = '[{"id": 89, "width": 10, \
+        "height": 4}, {"id": 7, "width": 1, "height": 7}]'
         self.assertEqual(len(Base.from_json_string(json_string)), 2)
