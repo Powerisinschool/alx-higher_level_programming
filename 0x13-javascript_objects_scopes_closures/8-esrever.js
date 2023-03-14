@@ -5,7 +5,7 @@ exports.esrever = function (list) {
   let j = list.length - 1;
   while (i < j) {
     // swap list[i] and list[j]
-    let temp = list[i];
+    const temp = list[i];
     list[i] = list[j];
     list[j] = temp;
     // increment i and decrement j
@@ -13,4 +13,4 @@ exports.esrever = function (list) {
     j--;
   }
   return list;
-}
+};
