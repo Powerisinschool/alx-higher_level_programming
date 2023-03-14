@@ -22,13 +22,13 @@ module.exports = class Rectangle {
     }
   }
 
-  rotate() {
+  rotate () {
     const w = this.width;
     this.width = this.height;
     this.height = w;
   }
 
-  double() {
+  double () {
     this.width = this.width * 2;
     this.height = this.height * 2;
   }
