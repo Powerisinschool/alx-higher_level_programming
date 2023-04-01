@@ -1,3 +1,3 @@
 #!/bin/bash
-# Curl DELETE
-curl -X DELETE $1
+# curl DELETE
+curl -sX DELETE $1
